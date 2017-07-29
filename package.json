@@ -1,0 +1,15 @@
+{
+  "name": "bamazon",
+  "version": "0.0.0",
+  "description": "amazon-like database app",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeff Carlow",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^3.2.1",
+    "mysql": "^2.14.0"
+  }
+}
