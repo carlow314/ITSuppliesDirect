@@ -50,7 +50,6 @@ function CheckStockLevel(quantity, itemId) {
   }, function(err, res) {
     if (err)
       throw err;
-    console.log(res[0].stock_qty);
     if (res[0].stock_qty < quantity) {
       console.log("Sorry, there is not enough inventory to fill your order today!!");
       displayAllProducts();
