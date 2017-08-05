@@ -4,7 +4,7 @@ Amazon-like mysql database app. This uses node.js to create a dynamic mysql datb
 ![Bamazon Customer items](images/bamazonCustomercommandscreen.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
 ![Bamazon Manager View Products](images/manager_viewproducts.png)
-![Bamazon Manager View Low Inventory](images/manager_viewlowinventory.png)
+![Bamazon Manager View Low Inventory](images/lowinventory.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
