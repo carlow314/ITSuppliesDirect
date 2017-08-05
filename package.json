@@ -9,6 +9,7 @@
   "author": "Jeff Carlow",
   "license": "ISC",
   "dependencies": {
+    "better-console": "^1.0.0",
     "inquirer": "^3.2.1",
     "mysql": "^2.14.0"
   }

@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var console = require('better-console');
 var connection = mysql.createConnection({
   host: "127.0.0.1", port: 3306,
   // Your username
@@ -32,48 +33,50 @@ function menu() {
         addToInventory();
         break;
       case "Add New Product":
-        console.log("Add New Product");
+        addNewProduct();
         break;
     }
   });
 };
 
 function displayAllProducts() {
+  var productlist = [];
   connection.query("SELECT * FROM products", function(err, res) {
+    if (err)
+      throw err;
     for (var i = 0; i < res.length; i++) {
-      console.log("-----------------------------------");
-      console.log(res[i].item_id + " | " + res[i].product_name + " | " + "$" + res[i].price + " | " + res[i].stock_qty);
+      productlist.push(res[i]);
     }
-    console.log("-----------------------------------");
+    console.table(productlist);
+    menu();
   });
 }
 function lowInventory() {
+  var productlist = [];
   connection.query("SELECT * FROM products WHERE stock_qty < 3", function(err, res) {
+    if (err)
+      throw err;
     for (var i = 0; i < res.length; i++) {
-      console.log("-----------------------------------");
-      console.log(res[i].item_id + " | " + res[i].product_name + " | " + "$" + res[i].price + " | " + res[i].stock_qty);
+      productlist.push(res[i]);
     }
-    console.log("-----------------------------------");
+    console.table(productlist);
+    menu();
   });
-  menu();
 }
 function addToInventory() {
   connection.query("SELECT * FROM products", function(err, res) {
     if (err)
       throw err;
     var productname = [];
-    var stockqty = [];
     for (var i = 0; i < res.length; i++) {
       var choice = res[i];
       productname.push(choice.product_name);
-      stockqty.push(choice.stock_qty);
-      //console.log(productname);
     };
     inquirer.prompt([
       {
         name: "itemName",
         type: "list",
-        message: "What is the ID of the product you want to increase inventory on?",
+        message: "What is the Name of the product you want to increase inventory on?",
         choices: productname
       }, {
         name: "quantity",
@@ -113,4 +116,38 @@ function addToInventory() {
       };
     });
   };
+};
+
+function addNewProduct() {
+  inquirer.prompt([
+    {
+      name: "itemName",
+      type: "input",
+      message: "What is the Name of the product you want to increase inventory on?"
+    }, {
+      name: "department",
+      type: "input",
+      message: "What department is this product sold out of?"
+    }, {
+      name: "price",
+      type: "input",
+      message: "What will the retail price of this product be?"
+    }, {
+      name: "quantity",
+      type: "input",
+      message: "What is the quantity you would like to add to inventory?"
+    }
+  ]).then(function(answer) {
+    var query = connection.query("INSERT INTO products SET ?", {
+      product_name: answer.itemName,
+      department_name: answer.department,
+      price: answer.price,
+      stock_qty: answer.quantity
+    }, function(err, res) {
+      if (err)
+        throw err;
+      console.log(res.affectedRows + " product inserted!");
+      menu();
+    });
+  });
 };
