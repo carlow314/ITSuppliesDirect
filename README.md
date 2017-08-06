@@ -14,9 +14,10 @@ Amazon-like application. This app uses node.js  to create a dynamic mysql datbas
 
 ## Manager Use of Application
 
-1. Open git terminal and navigate to the folder of the app. In the command line enter `node bamazonManager.js` . This will display options that are available for the manager. First select `View Products For Sale` . This will generate a report of all products in the database.
+1.) Open git terminal and navigate to the folder of the app. In the command line enter `node bamazonManager.js` . This will display options that are available for the manager. First select `View Products For Sale` . This will generate a report of all products in the database.
 ![Bamazon Manager View Products](images/manager_viewproducts.png)
 
+2.) The menu will re-populate after you run the `View Products for sale` prompt. Next select `View Low Inventory` from the menu. This will generate a report of all items that have stock levels of less than 3.
 ![Bamazon Manager View Low Inventory](images/lowinventory.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
