@@ -19,7 +19,9 @@ Amazon-like application. This app uses node.js  to create a dynamic mysql datbas
 
 2.) The menu will re-populate after you run the `View Products for sale` prompt. Next select `View Low Inventory` from the menu. This will generate a report of all items that have stock levels of less than 3.
 ![Bamazon Manager View Low Inventory](images/lowinventory.png)
-![Bamazon Customer item selection](images/customeritemselection.png)
+
+3.)The menu will re-populate again, and this time the manager will want to increase the inventory of certain items. Select `Add to Inventory` and another prompt will display. It will list all items in the database. Scroll down to the item that needs to have its inventory increased and click enter.
+![BamazonManager Increase Inventory first prompt](images/increaseinventory1.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
