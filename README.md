@@ -21,6 +21,7 @@ Amazon-like application. This app uses node.js  to create a dynamic mysql datbas
 ![Bamazon Manager View Low Inventory](images/lowinventory.png)
 
 3.)The menu will re-populate again, and this time the manager will want to increase the inventory of certain items. Select `Add to Inventory` and another prompt will display. It will list all items in the database. Scroll down to the item that needs to have its inventory increased and click enter.
+![BamazonManager Increase Inventory first prompt](images/increaseinventory1.png)
 
 ![Bamazon Customer item selection](images/customeritemselection.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
