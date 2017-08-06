@@ -27,5 +27,7 @@ Amazon-like application. This app uses node.js  to create a dynamic mysql datbas
 3a.) Another prompt will display asking what quantity of the product you wish to add. At this point a number is selected and enter is clicked. This will execute the increase in quantity of the product. A message will display alerting you what item was updated and for what quantity.
 
 ![Bamazon Manager Increase Inventory Second Prompt](images/increaseinventory2.png)
-![Bamazon Customer item selection](images/customeritemselection.png)
+
+4.) The menu will re-populate again. This time the manager needs to add a product to the database. This is done by selecting `Add New Product`. This will generate another prompt which will ask questions about the product. This includes `Product Name`, `Department Name` , `price`, and ` stock quantity` . It will then display a message that the product was added!
+![Bamazon Customer item selection](images/addproduct.png)
 ![Bamazon Customer item selection](images/customeritemselection.png)
