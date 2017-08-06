@@ -35,3 +35,6 @@ Amazon-like application. This app uses node.js  to create a dynamic mysql datbas
 
 1.) Open git terminal and navigate to the folder of the app. In the command line enter `node bamazonSupervisor.js` . This will display options that are available for the supervisor. First select `View Products Sales By Department` . This will generate a report of sales by department for the supervisor to review.
 ![Bamazon Supervisor Sales Report](images/supervisor_report.png)
+
+2.) The menu will re-populate with the available options. This time select `Add Department`. There will be another prompt where `department name` and `overhead cost` need to be entered. Once this is executed a message will display letting you know that the department was added.
+![Bamazon Supervisor Department Added](images/add_department.png)
