@@ -33,7 +33,6 @@ function placeYourOrder() {
       message: "What is the quantity you would like to buy?"
     }
   ]).then(function(answer) {
-    console.log(answer);
     var quantity = answer.quantity;
     var itemId = answer.itemID;
     //checks inventory to see if there is enough product to fulfill customer request
