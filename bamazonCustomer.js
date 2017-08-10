@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 var inquirer = require('inquirer');
 var console = require('better-console');
-var connection = mysql.createConnection({host: '127.0.0.1', port: 3306, user: 'root', password: '*********, database: 'bamazon'});
+var connection = mysql.createConnection({host: '127.0.0.1', port: 3306, user: 'root', password: '*********', database: 'bamazon'});
 connection.connect(function(err) {
   if (err)
     throw err;
