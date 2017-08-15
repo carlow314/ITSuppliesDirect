@@ -1,13 +1,16 @@
-var mysql = require("mysql");
-var inquirer = require("inquirer");
+//require mysql npm module
+var mysql = require('mysql');
+//require inquirer npm module
+var inquirer = require('inquirer');
+//require better-console module
 var console = require('better-console');
+//connect to mysql database
 var connection = mysql.createConnection({
-  host: "127.0.0.1", port: 3306,
-  // Your username
-  user: "root",
-  // Your password
-  password: "Rudy31484$",
-  database: "bamazon"
+  host: '127.0.0.1',
+  port: 3306,
+  user: 'root',
+  password: '******',
+  database: 'bamazon'
 });
 connection.connect(function(err) {
   if (err)
@@ -15,6 +18,7 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
   menu();
 });
+//menu function. Will prompt Manager with 3 options.
 function menu() {
   inquirer.prompt({
     name: "action",
@@ -38,7 +42,7 @@ function menu() {
     }
   });
 };
-
+//function to display all products that the store carries.
 function displayAllProducts() {
   var productlist = [];
   connection.query("SELECT * FROM products", function(err, res) {
@@ -51,6 +55,8 @@ function displayAllProducts() {
     menu();
   });
 }
+
+//function to display all products with 3 items or less left in inventory
 function lowInventory() {
   var productlist = [];
   connection.query("SELECT * FROM products WHERE stock_qty < 3", function(err, res) {
@@ -63,6 +69,7 @@ function lowInventory() {
     menu();
   });
 }
+//function to be able to increase qty of inventory of products for sale.
 function addToInventory() {
   connection.query("SELECT * FROM products", function(err, res) {
     if (err)
@@ -96,10 +103,12 @@ function addToInventory() {
     }, function(err, res) {
       if (err)
         throw err;
+      //limits you to only increase inventory if inventory levels are less than 10.
       if (res[0].stock_qty > 10) {
         console.log("Sorry, Inventory levels are not low enough to restock this product!");
         menu();
       } else {
+        //update mysql database with inventory level changes
         var name = res[0].product_name;
         connection.query("UPDATE products SET ? WHERE ?", [
           {

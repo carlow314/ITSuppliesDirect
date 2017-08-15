@@ -1,13 +1,16 @@
-var mysql = require("mysql");
-var inquirer = require("inquirer");
+//require mysql npm module
+var mysql = require('mysql');
+//require inquirer npm module
+var inquirer = require('inquirer');
+//require better-console module
 var console = require('better-console');
+//connect to mysql database
 var connection = mysql.createConnection({
-  host: "127.0.0.1", port: 3306,
-  // Your username
-  user: "root",
-  // Your password
-  password: "Rudy31484$",
-  database: "bamazon"
+  host: '127.0.0.1',
+  port: 3306,
+  user: 'root',
+  password: '******',
+  database: 'bamazon'
 });
 connection.connect(function(err) {
   if (err)
@@ -15,6 +18,7 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
   menu();
 });
+//menu with choices for Supervisor
 function menu() {
   inquirer.prompt({
     name: "action",
@@ -32,7 +36,7 @@ function menu() {
     }
   });
 };
-
+//function to add Departments to the store.
 function addDepartment() {
   inquirer.prompt([
     {
@@ -57,6 +61,7 @@ function addDepartment() {
   });
 };
 
+//function to view the sales report across all departments.
 function viewSales() {
   var productlist = [];
   connection.query("SELECT department_id,departments.department_name,overhead_costs,product_sales,(product_sales-overhead_costs) AS Total_Revenue FROM departments INNER JOIN products on products.department_name = departments.department_name GROUP BY department_name", function(err, res) {
