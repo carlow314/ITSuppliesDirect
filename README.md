@@ -1,4 +1,4 @@
-# bamazon
+# IT Supplies Direct
 Amazon-like application. This app uses node.js  to create a dynamic mysql datbase which creates and manages a storefront.
 
 ## Customer Use of Application
